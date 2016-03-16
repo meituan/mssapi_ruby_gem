@@ -157,5 +157,11 @@ module MSS
       {:form => pp.fields, :url => pp.url.to_s}
     end
 
+    def presigned_post_token(bucket, key = "${filename}", opts)
+      pp = buckets[bucket].presigned_post({:key => key, :secure => config.use_ssl}.merge(opts))
+      token = pp.fields["AWSAccessKeyId"] + ":" + pp.fields["signature"] + ":" + pp.fields["policy"] + ":" + Base64.strict_encode64(pp.fields["bucket"])
+      return token
+    end
+
   end
 end
