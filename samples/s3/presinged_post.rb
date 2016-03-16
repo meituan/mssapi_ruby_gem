@@ -50,5 +50,5 @@ new_post_info = {
   "value" => File.new(file_name, 'rb'),
 }
 RestClient.post post_info_obj["url"], new_post_info
-puts new_post_info.to_json
+#puts new_post_info.to_json
 
