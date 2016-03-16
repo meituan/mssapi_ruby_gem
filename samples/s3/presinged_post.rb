@@ -9,8 +9,7 @@ end
 
 # Server End
 s3 = MSS::S3.new({
-#:s3_endpoint => 'mtmss.com',
-    :s3_endpoint => 'msstest-corp.sankuai.com',
+    :s3_endpoint => 'mtmss.com',
     :use_ssl => false,
     :s3_force_path_style => true,
     :access_key_id => access_key,
@@ -50,5 +49,7 @@ new_post_info = {
   "value" => File.new(file_name, 'rb'),
 }
 RestClient.post post_info_obj["url"], new_post_info
-#puts new_post_info.to_json
+puts
+puts "Token:"
+puts token
 
