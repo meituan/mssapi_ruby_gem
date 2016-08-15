@@ -407,6 +407,16 @@ module MSS
 
       end
 
+
+      def fetch options = {}
+        client.msfetch_url(options.merge(
+                                 :bucket_name => bucket.name,
+                                 :key => key))
+
+        nil
+
+      end
+
       # Restores a temporary copy of an archived object from the
       # Glacier storage tier. After the specified `days`, Amazon
       # S3 deletes the temporary copy. Note that the object
