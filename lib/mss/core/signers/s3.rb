@@ -20,7 +20,7 @@ module MSS
           acl location logging notification partNumber policy
           requestPayment torrent uploadId uploads versionId
           versioning versions restore delete lifecycle tagging cors
-          website
+          website msfetch msfetchurl
         )
 
         QUERY_PARAMS = %w(
