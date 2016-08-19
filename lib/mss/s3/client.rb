@@ -1937,7 +1937,7 @@ module MSS
       end
 
       object_method(:msfetch_url, :put) do
-        configure_request do |request, options|
+        configure_request do |req, options|
           require_msfetch_url!(options[:msfetchurl])
           req.add_param('msfetch')
           super(req, options)
