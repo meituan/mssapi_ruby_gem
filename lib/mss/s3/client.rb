@@ -1936,7 +1936,7 @@ module MSS
 
       end
 
-      object_method(:msfetch_url, :put) do
+      object_method(:msfetch_url, :get) do
         configure_request do |req, options|
           require_msfetch_url!(options[:msfetchurl])
           req.add_param('msfetch')
