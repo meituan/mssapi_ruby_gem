@@ -476,6 +476,12 @@ module MSS
           end
         end
 
+        def require_msfetch_url!(msfetchurl)
+          validate!("msfetchurl", msfetchurl) do
+            "must not be blank" if msfetchurl.to_s.empty?
+          end
+        end
+
         def require_part_number! part_number
           validate!("part_number", part_number) do
             "must not be blank" if part_number.to_s.empty?
@@ -1928,6 +1934,15 @@ module MSS
           req.add_param('part-number-marker', options[:part_number_marker])
         end
 
+      end
+
+      object_method(:msfetch_url, :get) do
+        configure_request do |req, options|
+          require_msfetch_url!(options[:msfetchurl])
+          req.add_param('msfetch')
+          super(req, options)
+          req.add_param('msfetchurl', options[:msfetchurl])
+        end
       end
 
       # Copies an object from one key to another.
